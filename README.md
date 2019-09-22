@@ -5,18 +5,20 @@
 
 > 展示实验室论文成果
 
-基于gin, element, docker, docker-compose构建的容器化网站。网站效果图请[点击这里](#效果图)查看。
+基于gin, vue, docker, docker-compose构建网站服务。网站效果图请[点击这里](#效果图)查看。
 
-> 本网站根据老板的需求编写, 来展示实验室的论文成果，无奈网上没有开源的代码，只能疯狂coding 2,3天写出了这一简单版本，毕竟研究生做前端开发的也不多，UI就以简洁为主，如果大家关注度比较高的话(多多star)，那么欢迎大家多提issue,我会考虑继续完善这个项目。
+> 本网站根据老板的需求编写, 来展示实验室的论文成果，无奈网上没有开源的代码，只能疯狂coding 2,3天写出了这一简单版本，毕竟研究生也不是专业搞前端开发的，UI就以简洁为主，如果大家关注度比较高的话(多多star)，那么欢迎大家多提issue,我会考虑继续完善这个项目。
 
 好的README会附上一个目录
 
-### 目录
+## 目录
 
 1. [部署指南](#部署指南)
 2. [迁移指南](#迁移指南)
 3. [开发指南](#开发指南)
-4. [效果图](#效果图)
+4. [技术栈](#技术栈)
+5. [TODO](#TODO)
+6. [效果图](#效果图)
 
 ## 部署指南
 
@@ -57,7 +59,7 @@
 
 5. 在启动服务之前，有几个配置项需要配置一下
 
-   1. `labac/conf/app.ini`文件, 修改`JWT_SECRET`和`[admin]`下的值，`JWT_SECRET`是生成token的密钥,而`[admin]`下的值就是登录网站时使用的用户名和密码。
+   1. `labac/conf/app.ini`文件, 修改`JWT_SECRET`和`[admin]`下的值，`JWT_SECRET`是生成token的密钥请随机输入字母和数字的组合(这里我用了我的学号),而`[admin]`下的值就是登录网站时使用的用户名和密码。
 
       ```ini
       RUN_MODE = debug
@@ -70,7 +72,7 @@
 
    2. config.js 下面修改后端请求地址，为机器的ip
 
-   3. `docker-compose.yml`,docker-compose启动时,如果端口50被占用,可以修改为其他端口, 该选项一般不需要修改。除非出现执行第5步之后出现因为端口被占用导致的无法启动的问题。
+   3. `docker-compose.yml`,docker-compose启动时,如果端口50被占用,可以修改为其他端口, 该选项一般不需要修改。除非出现执行第6步之后出现因为端口被占用导致的无法启动的问题。
 
       ```yml
       version: "3"
@@ -82,6 +84,7 @@
             - ./compose-conf/nginx.conf:/etc/nginx/conf/nginx.conf
           ports:
             - "50:80"
+      ...
       ```
 
 6. 启动服务,在项目根目录下执行:
@@ -100,7 +103,21 @@
 
 ## 开发指南
 
+
+
+## 技术栈
+
 本项目前端代码使用[Element](https://element.eleme.cn/#/zh-CN)-基于 Vue 2.0 的桌面端组件库构建，后端使用golang编写的web框架[gin](https://gin-gonic.com/)提供restful api服务, 使用redis存储必要的数据。整个服务使用docker-compose部署。
+
+1. 前端 vue+vuex+vue-router+axios+element
+
+   既然用vue写前端了，不管用到用不到都要上vue全家桶啦，前端没有什么想说的，基于一个理解就行，简单就是美，其实色彩越单调，结构越简单越好。开发的时候，突然发现加入一些好看的图标，能够极大的美化页面，因为element自带的icon种类太少，我就从阿里的[icon库](https://www.iconfont.cn/)里面选择了一些比较好的icon。发现效果确实不错，大家以后也可以使用这上面的图标。
+
+2. 后端 golang(gin) 之前一直用python写后端，这次第一次试水了golang,发现写起来并没有很难受，感觉gin写后端很容易上手，并不比flask或者tornado差。而且golang的goroutine和channel简直不要太爽(这里没有用到，只是单纯的想夸一下golang)。学习的时候，参考的[这篇博客](https://eddycjy.gitbook.io/golang/di-3-ke-gin),写的很不错，之前golang一直被诟病没有好的包管理机制，这次使用了go mod,感觉比以前要设置path好多了。
+
+3. docker-compose(nginx+golang+redis)
+
+   因为老板想让部署和迁移都比较方便，那就毫无疑问上docker啦，把一些数据映射到宿主机，迁移的时候，把容器映射到宿主机的文件拷贝出来再部署就可以恢复数据了。
 
 ## TODO
 

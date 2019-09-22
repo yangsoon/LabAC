@@ -2,6 +2,7 @@ version: "3"
 services:
   labac-front:
     image: "nginx:latest"
+    restart: "always"
     volumes:
       - ./labac-front/dist:/usr/share/nginx/html
       - ./compose-conf/nginx.conf:/etc/nginx/conf/nginx.conf
