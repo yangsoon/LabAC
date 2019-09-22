@@ -1,0 +1,15 @@
+version: "3"
+services:
+  labac-gin:
+    build: .
+    restart: "always"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./resource:/labac/src
+  redis:
+    image: "redis:latest"
+    restart: "always"
+    volumes:
+      - ./db:/data
+    command: redis-server --appendonly yes
