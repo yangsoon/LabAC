@@ -1,5 +1,12 @@
 version: "3"
 services:
+  labac-front:
+    image: "nginx:latest"
+    volumes:
+      - ./labac-front/dist:/usr/share/nginx/html
+      - ./compose-conf/nginx.conf:/etc/nginx/conf/nginx.conf
+    ports:
+      - "50:80"
   labac-gin:
     build: .
     restart: "always"
