@@ -7,7 +7,7 @@
 
 基于gin, vue, docker, docker-compose构建网站服务。网站效果图请[点击这里](#效果图)查看。
 
-> 本网站根据老板的需求编写, 来展示实验室的论文成果，无奈网上没有开源的代码，只能2天快速撸出这一简单版本，毕竟研究生也不是专业搞前端开发的，UI就以简洁为主，如果大家关注度比较高的话(多多star)，我会考虑继续完善这个项目(欢迎大家多提issue,)。
+> 本网站根据老板的需求编写, 来展示实验室的论文成果，无奈网上没有开源的代码，只能2天快速撸出这一简单版本，毕竟研究生也不是专业搞前端开发的，UI就以简洁为主，如果大家关注度比较高的话(多多star)，我会考虑继续完善这个项目(欢迎大家多提issue)。
 
 好的README会附上一个目录
 
@@ -47,6 +47,8 @@
       ```sh
       CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o labac .
       ```
+
+      > 编译所生成的可执行文件会依赖一些库，并且是动态链接。在这里因为使用的是 `scratch`镜像，它是空镜像，因此我们需要将生成的可执行文件静态链接所依赖的库。                              --[煎鱼的博客](https://eddycjy.gitbook.io/golang/di-3-ke-gin/golang-docker#san-zhong-xin-gou-jian-jing-xiang)
 
    2. 进入`labac-front`目录
 
