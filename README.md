@@ -72,7 +72,7 @@
       PASSWORD = admin
       ```
 
-   2. `docker-compose.yml`,docker-compose启动时,如果端口50被占用,可以修改为其他端口, 该选项一般不需要修改。除非出现执行第6步之后出现因为端口被占用导致的无法启动的问题。
+   2. `docker-compose.yml`,docker-compose启动时,如果端口80被占用,可以修改为其他端口, 该选项一般不需要修改。除非出现执行第6步之后出现因为端口被占用导致的无法启动的问题。
 
       ```yml
       version: "3"
@@ -83,7 +83,7 @@
             - ./labac-front/dist:/usr/share/nginx/html
             - ./compose-conf/nginx.conf:/etc/nginx/conf/nginx.conf
           ports:
-            - "50:80"
+            - "80:80"
       ...
       ```
 
@@ -92,6 +92,8 @@
    ```sh
    docker-compose up -d
    ```
+
+7. 放进大象，开玩笑的。这时候输入ip就能直接访问了。
 
 ## 迁移指南
 
