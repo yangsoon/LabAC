@@ -112,14 +112,15 @@
 本项目前端代码使用[Element](https://element.eleme.cn/#/zh-CN)-基于 Vue 2.0 的桌面端组件库构建，后端使用golang编写的web框架[gin](https://gin-gonic.com/)提供restful api服务, 使用redis存储必要的数据。整个服务使用docker-compose部署。
 
 1. 前端 vue+vuex+vue-router+axios+element
-
-   既然用vue写前端了，不管用到用不到都要上vue全家桶啦，前端没有什么想说的，基于一个理念就行，简单就是美，其实色彩越单调，结构越简单越好。开发的时候，突然发现加入一些好看的图标，能够极大的美化页面，因为element自带的icon种类太少，我就从阿里的[icon库](https://www.iconfont.cn/)里面选择了一些比较好的icon。发现效果确实不错，大家以后也可以使用这上面的图标。
-
-2. 后端 golang(gin) 之前一直用python写后端，这次第一次试水了golang,发现写起来并没有很难受，感觉gin写后端很容易上手，并不比flask或者tornado差。而且golang的goroutine和channel简直不要太爽(这里没有用到，只是单纯的想夸一下golang)。学习的时候，参考的[这篇博客](https://eddycjy.gitbook.io/golang/di-3-ke-gin),写的很不错，之前golang一直被诟病没有好的包管理机制，这次使用了go mod,感觉比以前要设置path好多了。
-
+   1. 既然用vue写前端了，不管用到用不到都要上vue全家桶啦，前端没有什么想说的，基于一个理念就行：简单就是美，其实色彩越单调，结构越简单越好。
+   2. 开发的时候，突然发现加入一些好看的图标，能够极大的美化页面，因为element自带的icon种类太少，我就从阿里的[icon库](https://www.iconfont.cn/)里面选择了一些比较好的icon。发现效果确实不错，大家以后也可以使用这上面的图标。
+2. 
+   1. 后端 golang(gin) 之前一直用python写后端，这次第一次试水了golang,发现写起来并没有很难受，感觉gin写后端很容易上手，并不比flask或者tornado差。
+   2. 而且golang的goroutine和channel简直不要太爽(这里没有用到，只是单纯的想夸一下golang)。
+   3. 学习的时候，参考的[这篇博客](https://eddycjy.gitbook.io/golang/di-3-ke-gin),写的很不错。
 3. docker-compose(nginx+golang+redis)
-
-   因为老板想让部署和迁移都比较方便，那就毫无疑问上docker啦，把一些数据映射到宿主机，迁移的时候，把容器映射到宿主机的文件拷贝出来再部署就可以恢复数据了。
+   1. 因为老板想让部署和迁移都比较方便，那就毫无疑问上docker啦，把一些数据映射到宿主机，迁移的时候，把容器映射到宿主机的文件拷贝出来再部署就可以恢复数据了。
+   2. 其中我将前端放在nginx容器上，并用nginx做一层反向代理到golang容器中，其实这里的golang并不是一个golang的环境，只是存放了后端编译好的可执行程序。
 
 ## TODO
 
