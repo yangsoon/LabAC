@@ -72,7 +72,7 @@
       PASSWORD = admin
       ```
 
-   2. `docker-compose.yml`,docker-compose启动时,如果端口80被占用,可以修改为其他端口, 该选项一般不需要修改。除非出现执行第6步之后出现因为端口被占用导致的无法启动的问题。
+   2. `docker-compose.yml`, 将yml文件中的`ports`端口映射部分改成`80:80`，docker-compose启动时,如果端口80被占用,可以修改为其他端口, 该选项一般不需要修改。除非出现执行第6步之后出现因为端口被占用导致的无法启动的问题。
 
       ```yml
       version: "3"
@@ -127,7 +127,15 @@
 
 ## 效果图
 
+论文集
 
+![](./image/论文.png)
+
+编辑-添加
+
+![](./image/添加.png)
+
+![](./image/管理.png)
 
 ## Author
 
