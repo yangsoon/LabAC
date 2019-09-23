@@ -62,6 +62,6 @@ func loadApp() {
 		"docx": "article",
 	}
 
-	UserName = Cfg.Section("admin").Key("UserName").MustString("admin")
-	PassWord = Cfg.Section("admin").Key("PassWord").MustString("admin")
+	UserName = Cfg.Section("admin").Key("USERNAME").MustString("admin")
+	PassWord = Cfg.Section("admin").Key("PASSWORD").MustString("admin")
 }

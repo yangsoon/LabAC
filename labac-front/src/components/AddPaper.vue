@@ -9,7 +9,7 @@
                 <el-input v-model="form.author" placeholder="!为了有较好的显示效果，请只输入第一(二)作者"></el-input>
               </el-form-item>
               <el-form-item label="会议(期刊)">
-                <el-input v-model="form.inst" placeholder="请输入会议(期刊)名称"></el-input>
+                <el-input v-model="form.inst" placeholder="请输入会议(期刊)名称 !请按会议/期刊缩写+年份缩写命名 例如 HPCC18、IEEE ACCESS19"></el-input>
               </el-form-item>
               <el-form-item label="代码地址">
                 <el-input v-model="form.code" placeholder="请输入项目代码地址: 例如 https://www.github.com/BUAA/Demo"></el-input>
