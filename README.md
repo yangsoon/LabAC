@@ -57,7 +57,7 @@
       npm run build
       ```
 
-4. 如果电脑上没有配置相关的环境请到[release](https://github.com/yangsoon/LabAC/releases)页面下载相关文件,把解压后的`labac`放在`labac-gin`文件夹内 ,`dist`文件放在`labac-front`文件夹内。
+4. 请到[release](https://github.com/yangsoon/LabAC/releases)页面下载相关文件,把解压后的`labac`放在`labac-gin`文件夹内 ,`dist`文件放在`labac-front`文件夹内。
 
 5. 在启动服务之前，有几个配置项需要配置一下
 
@@ -97,7 +97,7 @@
 
 ## 迁移指南
 
-如果遇到了机器故障，需要更换机器部署应用，但是又要保证数据一致性的话，请参考下面操作。操作的前提是原本机器上的文件没有损坏，需要保证项目根目录下的`resource`和`db`文件完好，这两个文件分别存储着论文PPT资源和redis数据库可持久化数据。
+如果遇到了机器故障，需要更换机器部署应用，但是又要保证数据一致性的话，请参考下面操作。操作的前提是原本机器上的文件没有损坏，需要保证项目根目录下的`resource`和`db`文件完好，这两个文件分别存储着论文PPT资源和redis数据库持久化数据。
 
 1. 在新机器上下载项目代码
 2. 将原本机器上的`resource`和`db`文件拷贝，并覆盖新机器上项目对应的文件。
