@@ -5,7 +5,7 @@ services:
     restart: "always"
     volumes:
       - ./labac-front/dist:/usr/share/nginx/html
-      - ./compose-conf/nginx.conf:/etc/nginx/conf/nginx.conf
+      - ./compose-conf/nginx.conf:/etc/nginx/nginx.conf
     ports:
       - "50:80"
   labac-gin:
