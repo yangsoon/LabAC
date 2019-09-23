@@ -105,7 +105,38 @@
 
 ## 开发指南
 
-本项目采样前后端分离的形式进行开发。如果需要修改前端代码，首先需要
+本项目采样前后端分离的形式进行开发。如果需要修改前端代码，请先配置好前端环境，你需要安装nodejs, vue-cli3。后端使用golang1.12，然后用docker-compose部署，下面列出我的开发环境,可以参考一下，前端应该对版本号没有严格的要求。
+
+|      软件      |  版本号  |
+| :------------: | :------: |
+|      node      | v11.0.0  |
+|      npm       | v6.11.3  |
+|    vue-cli3    | v3.11.0  |
+|     golang     | v1.12.8  |
+|     docker     | v19.03.2 |
+| docker-compose |  1.24.1  |
+
+环境配好之后，就可以开发啦。
+
+1. 前端: 本项目使用前后端分离的方式开发，你需要进入到`labac-front`目录下面执行`npm install`安装依赖，因为前后端要分别启动，所以前端启动之前要进入`/labac-front/src/store/modules`目录下面修改`app.js`文件中的baseUrl，换成后端的地址。例如`http://127.0.0.1:8000`
+
+   ```js
+   const app = {
+     state :{
+         activeMenu: "paper",
+         activeTab: "viewPaper",
+         editPaper: null,
+         baseUrl: "",
+     },
+   ```
+
+   后面就可以执行`npm run server`启动啦。
+
+2. 后端启动的时候，进入`labac-gin`文件夹中执行`go run main.go`就可以启动，第一次执行的时候会下载依赖，可能比较慢。所有的api逻辑都放在了`labac-gin/routers/api/paper.go`中，`labac-gin/routers/router.go`存储着路由的映射关系。后端相关配置项放在了`labac-gin/conf/app.ini`文件中。
+
+3. 本项目使用了3个docker容器，nginx容器上放静态文件，并将请求转发给存放后端容器中，redis容器负责存放数据。
+
+4. 为了方便迁移，将一些相关文件从容器映射到本地，迁移的时候附带这这些文件就行。
 
 ## 技术栈
 
