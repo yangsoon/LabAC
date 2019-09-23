@@ -70,9 +70,7 @@
       PASSWORD = admin
       ```
 
-   2. config.js 下面修改后端请求地址，为机器的ip
-
-   3. `docker-compose.yml`,docker-compose启动时,如果端口50被占用,可以修改为其他端口, 该选项一般不需要修改。除非出现执行第6步之后出现因为端口被占用导致的无法启动的问题。
+   2. `docker-compose.yml`,docker-compose启动时,如果端口50被占用,可以修改为其他端口, 该选项一般不需要修改。除非出现执行第6步之后出现因为端口被占用导致的无法启动的问题。
 
       ```yml
       version: "3"
@@ -111,7 +109,7 @@
 
 1. 前端 vue+vuex+vue-router+axios+element
 
-   既然用vue写前端了，不管用到用不到都要上vue全家桶啦，前端没有什么想说的，基于一个理解就行，简单就是美，其实色彩越单调，结构越简单越好。开发的时候，突然发现加入一些好看的图标，能够极大的美化页面，因为element自带的icon种类太少，我就从阿里的[icon库](https://www.iconfont.cn/)里面选择了一些比较好的icon。发现效果确实不错，大家以后也可以使用这上面的图标。
+   既然用vue写前端了，不管用到用不到都要上vue全家桶啦，前端没有什么想说的，基于一个理念就行，简单就是美，其实色彩越单调，结构越简单越好。开发的时候，突然发现加入一些好看的图标，能够极大的美化页面，因为element自带的icon种类太少，我就从阿里的[icon库](https://www.iconfont.cn/)里面选择了一些比较好的icon。发现效果确实不错，大家以后也可以使用这上面的图标。
 
 2. 后端 golang(gin) 之前一直用python写后端，这次第一次试水了golang,发现写起来并没有很难受，感觉gin写后端很容易上手，并不比flask或者tornado差。而且golang的goroutine和channel简直不要太爽(这里没有用到，只是单纯的想夸一下golang)。学习的时候，参考的[这篇博客](https://eddycjy.gitbook.io/golang/di-3-ke-gin),写的很不错，之前golang一直被诟病没有好的包管理机制，这次使用了go mod,感觉比以前要设置path好多了。
 

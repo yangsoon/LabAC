@@ -11,8 +11,8 @@ services:
   labac-gin:
     build: .
     restart: "always"
-    ports:
-      - "8000:8000"
+    expose:
+      - "8000"
     volumes:
       - ./resource:/labac/src
   redis:

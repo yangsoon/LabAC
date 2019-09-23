@@ -13,6 +13,8 @@ func InitRouter() *gin.Engine {
 	r := gin.New()
 	r.Use(gin.Logger())
 	r.Use(gin.Recovery())
+
+	// TODO 判断是否为生产环境
 	r.Use(cors.Default())
 	gin.SetMode(setting.RunMode)
 
