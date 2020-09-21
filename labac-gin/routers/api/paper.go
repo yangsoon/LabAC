@@ -152,8 +152,12 @@ func DownloadFile(c *gin.Context) {
 		}
 		c.Writer.WriteHeader(http.StatusOK)
 		fileSuffix, _ := info[file_type+"Suffix"]
-		c.Header("Content-Disposition", fmt.Sprintf("attachment; filename=%s", name+"."+fileSuffix))
-		c.Header("Content-Type", "application/text/plain")
+		c.Header("Content-Disposition", fmt.Sprintf("inline; filename=%s", name+"."+fileSuffix))
+		if fileSuffix == "pdf" {
+			c.Header("Content-Type", "application/pdf")
+		} else {
+			c.Header("Content-Type", "application/text/plain")
+		}
 		c.Header("Accept-Length", fmt.Sprintf("%d", len(content)))
 		c.Writer.Write([]byte(content))
 	} else {
